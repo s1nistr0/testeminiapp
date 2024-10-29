@@ -1,0 +1,429 @@
+body {
+	background: url("../images/bg.svg");
+	background-size: cover;
+	z-index: -1; /* MantĆ©m o fundo atrĆ�s de todos os elementos */
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background-color: black;
+}
+
+.header {
+	display: flex;
+	position: sticky;
+	top: 0;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 12px;
+	background-color: black;
+	z-index: 3;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo img {
+	height: 30px;
+}
+
+.search-container {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.search-icon {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding: 8px;
+}
+
+.search-icon img {
+	height: 24px;
+}
+
+.search-input {
+	width: 0;
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	outline: none;
+	transition: width 0.4s ease, opacity 0.4s ease;
+	position: absolute;
+	right: 0;
+	opacity: 0;
+}
+
+.search-container.open .search-input {
+	width: 200px;
+	opacity: 1;
+	position: relative;
+}
+
+/* Banner Styles */
+.banner-container {
+	position: relative;
+	width: 100%;
+	height: 212px; /* Certifique-se de que o contĆŖiner tenha altura definida */
+	overflow: hidden; /* Adiciona overflow hidden para garantir que o banner nĆ£o vaze */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.banner {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	transition: opacity 1s ease-in-out;
+	opacity: 0;
+	left: 0; /* Para garantir que todos os banners fiquem na mesma posiĆ§Ć£o */
+}
+
+.banner.active {
+	opacity: 1;
+}
+
+.banner::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50%; /* Ajuste a altura conforme necessĆ�rio */
+	background: linear-gradient(180deg, rgba(23, 0, 0, 0) 0%, #000000 100%);
+	z-index: 1; /* Certifique-se de que estĆ� acima da imagem, mas abaixo do conteĆŗdo */
+	pointer-events: none; /* Para garantir que o pseudo-elemento nĆ£o afete interaĆ§Ćµes */
+}
+
+.banner-content {
+	position: absolute;
+	bottom: 12px;
+	left: 12px;
+	color: #f2a5a5;
+	z-index: 2;
+}
+
+.movie-title {
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	margin: 0;
+	color: #f2a5a5;
+}
+
+.price-and-button {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 5px;
+}
+
+.price {
+	font-family: "Roboto", sans-serif;
+	font-weight: 600;
+	font-size: 12px;
+	color: #ffbbbb;
+}
+
+.btn {
+	padding: 5px 10px;
+	background: linear-gradient(180deg, #ff0000 0%, #000000 100%);
+	border: none;
+	border-radius: 5px;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	font-size: 12px;
+	color: #fff;
+	cursor: pointer;
+}
+
+/* Estilos comuns */
+.title-with-icon {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	color: #ff0000;
+	margin: 0;
+	position: relative;
+}
+
+.title-with-icon::before {
+	display: inline-block;
+	width: 15px; /* Ajuste conforme necessĆ�rio */
+	height: 15px; /* Ajuste conforme necessĆ�rio */
+	margin-right: 8px; /* EspaĆ§amento entre o Ć­cone e o texto */
+	vertical-align: middle;
+}
+
+.lancamentos-title::before {
+	content: url("../images/new.svg");
+}
+
+.sell-title::before {
+	content: url("../images/cart.svg"); /* Ć¨cone diferente */
+}
+
+.filmes-title::before {
+	content: url("../images/movie.svg"); /* Ć¨cone diferente */
+}
+
+.anime-title::before {
+	content: url("../images/anime.svg"); /* Ć¨cone diferente */
+}
+
+.series-title::before {
+	content: url("../images/serie.svg"); /* Ć¨cone diferente */
+}
+
+.reels-title::before {
+	content: url("../images/reels.svg"); /* Ć¨cone diferente */
+}
+
+.pesquisa-title::before {
+	content: url("../images/search2.svg"); /* Ć¨cone diferente */
+}
+
+/* Outros estilos */
+.lancamentos,
+.mais-vendidos,
+.filmes,
+.anime,
+.series,
+.reels,
+.pesquisa {
+	position: relative;
+	width: 100%;
+	height: 270px;
+	padding: 12px 0; /* Ajustando padding para evitar overflow */
+	overflow: hidden; /* Evita overflow no eixo X */
+}
+
+.lancamentos-header,
+.vendas-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	padding: 0 12px;
+}
+
+.ver-todos {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-size: 8px;
+	color: #da1313;
+	text-decoration: none;
+}
+
+.ver-todos::before {
+	content: url("../images/right.svg"); /* Ć¨cone diferente */
+	display: inline-block;
+	width: 12px; /* Ajuste conforme necessĆ�rio */
+	height: 12px; /* Ajuste conforme necessĆ�rio */
+	margin-right: 5px; /* EspaĆ§amento entre o Ć­cone e o texto */
+	vertical-align: middle;
+}
+
+.cards-container {
+	display: flex;
+	overflow-x: auto;
+	gap: 12px;
+	padding: 4px 12px;
+}
+
+.cards-container::-webkit-scrollbar {
+	display: none;
+}
+
+.card {
+	flex: none;
+	position: relative;
+	width: 134px;
+	background: no-repeat center center;
+	background-size: cover;
+	border-radius: 8px;
+}
+
+.card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.card-content {
+	position: absolute;
+	bottom: 12px;
+	left: 12px;
+	color: #ffffff;
+	text-shadow: 0px 0px 8px #b40404;
+}
+
+/* Popup Styles */
+.popup {
+	position: fixed;
+	width: 100%;
+	height: 330px;
+	left: 0;
+	bottom: -330px; /* Inicia fora da tela */
+	border: 1px solid #ff5f5f;
+	border-bottom: none;
+	border-radius: 8px 8px 0 0;
+	display: none; /* Esconde inicialmente */
+	padding: 20px;
+	box-sizing: border-box;
+	background: url("../images/bg2.svg");
+	background-size: cover;
+	z-index: 3;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background-color: black;
+}
+
+/* AnimaĆ§Ćµes */
+@keyframes slideUp {
+	from {
+		bottom: -330px;
+	}
+	to {
+		bottom: 0;
+	}
+}
+
+@keyframes slideDown {
+	from {
+		bottom: 0;
+	}
+	to {
+		bottom: -330px;
+	}
+}
+
+.popup.hide {
+	animation: slideDown 1s forwards;
+}
+
+.popup.show {
+	animation: slideUp 1s forwards;
+	display: flex; /* Garante que o popup seja exibido durante a animaĆ§Ć£o */
+}
+
+/* Estilo para o botĆ£o de fechar */
+.close-popup {
+	position: absolute;
+	top: 4px; /* Ajuste conforme necessĆ�rio */
+	right: 4px; /* Ajuste conforme necessĆ�rio */
+	background: transparent;
+	border: none;
+	font-size: 20px; /* Ajuste conforme necessĆ�rio */
+	color: #fff;
+	cursor: pointer;
+}
+
+.popup-content {
+	display: flex;
+}
+
+.popup-image {
+	width: 134px;
+	height: 200px;
+	border-radius: 8px;
+	margin-right: 20px;
+}
+
+.popup-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.popup-title {
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	font-size: 28px;
+	color: #ffffff;
+	text-shadow: 0px 0px 8px #b40404;
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+.popup-synopsis {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-size: 10px;
+	color: #ffffff;
+	text-shadow: 0px 0px 8px #b40404;
+	margin: 0;
+	margin-bottom: 20px;
+	display: -webkit-box;
+	line-clamp: 10;
+	-webkit-line-clamp: 10; /* NĆŗmero de linhas apĆ³s as quais o texto serĆ� truncado */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.popup-price-and-button {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.popup-price {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-size: 10px;
+	color: #ffffff;
+	text-shadow: 0px 0px 8px #b40404;
+	background-color: #390202;
+	padding: 8px;
+	border-radius: 4px;
+	display: inline-block;
+	line-height: 1; /* Ajuste este valor conforme necessĆ�rio para aumentar a distĆ¢ncia entre as linhas */
+}
+
+.old-price-wrapper {
+	font-style: italic;
+	font-size: 10px;
+	display: inline-block;
+	margin-bottom: 8px; /* Ajuste este valor conforme necessĆ�rio */
+}
+
+.old-price {
+	text-decoration: line-through;
+	display: inline-block;
+}
+
+.new-price {
+	font-weight: 600;
+	font-size: 12px;
+	display: inline-block;
+}
+
+.popup-btn {
+	padding: 5px 10px;
+	background: linear-gradient(180deg, #ff0000 0%, #810505 100%);
+	border: none;
+	border-radius: 5px;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	font-size: 12px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.cards-container.category-style {
+	flex-wrap: wrap; /* Permitir quebra de linha */
+}
+
+.category-style .card {
+	flex: 0 0 calc(25% - 12px); /* Cada card ocuparĆ� 25% do container, menos a margem */
+	box-sizing: border-box;
+}
+
+.pesquisa.category-expanded {
+	height: auto; /* Remove o limite de altura */
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✝️ Convento Padre - TOP Models🔥</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="#"><img src="images/logo.jpeg" alt="Logo"></a>
+        </div>
+        <div class="search-container">
+            <div class="search-icon">
+                <img src="images/logo.jpeg" alt="Search Icon">
+            </div>
+            <input type="text" class="search-input" placeholder="Pesquisar...">
+        </div>
+    </header>
+
+    <div id="main-content">
+        <div id="banner-container" class="banner-container">
+            
+        </div>
+
+        <section class="mais-procuradas" id="mais-procuradas">
+            <div class="lancamentos-header">
+                <h2 class="title-with-icon">🔍 Mais Procuradas</h2>
+            </div>
+            <div id="mais-procuradas-container" class="cards-container">
+                
+            </div>
+        </section>
+
+        <section class="modelos-premium" id="modelos-premium">
+            <div class="lancamentos-header">
+                <h2 class="title-with-icon">💎 Modelos Premium</h2>
+            </div>
+            <div id="modelos-premium-container" class="cards-container">
+                
+            </div>
+        </section>
+
+        <section class="top-10-brasil" id="top-10-brasil">
+            <div class="lancamentos-header">
+                <h2 class="title-with-icon">🇧🇷 Top 10 Brasil</h2>
+            </div>
+            <div id="top-10-brasil-container" class="cards-container">
+                
+            </div>
+        </section>
+
+        <section class="top-10-gringas" id="top-10-gringas">
+            <div class="lancamentos-header">
+                <h2 class="title-with-icon">🌍 Top 10 Gringas</h2>
+            </div>
+            <div id="top-10-gringas-container" class="cards-container">
+                
+            </div>
+        </section>
+
+        <section class="top-10-loiras" id="top-10-loiras">
+            <div class="lancamentos-header">
+                <h2 class="title-with-icon">👱‍♀️ Top 10 Loiras</h2>
+            </div>
+            <div id="top-10-loiras-container" class="cards-container">
+                
+            </div>
+        </section>
+
+        <section class="top-10-gamers" id="top-10-gamers">
+            <div class="lancamentos-header">
+                <h2 class="title-with-icon">🎮 Top 10 Gamers</h2>
+            </div>
+            <div id="top-10-gamers-container" class="cards-container">
+                
+            </div>
+        </section>
+
+        <section class="todas-as-modelos" id="todas-as-modelos">
+            <div class="lancamentos-header">
+                <h2 class="title-with-icon">👠 Todas as Modelos</h2>
+            </div>
+            <div id="todas-as-modelos-container" class="cards-container">
+                
+            </div>
+        </section>
+    </div>
+
+    <section class="pesquisa" id="pesquisa" style="display: none;">
+        <div class="lancamentos-header">
+            <h2 class="pesquisa-title title-with-icon">Resultados:</h2>
+        </div>
+        <div id="pesquisa-container" class="cards-container">
+            
+        </div>
+    </section>
+
+    <section class="pesquisa" id="category" style="display: none;">
+        <div class="lancamentos-header">
+            <h2 id="resultH2" class="pesquisa-title title-with-icon">Resultados:</h2>
+        </div>
+        <div id="category-container" class="cards-container">
+            
+        </div>
+    </section>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <button class="close-popup">X</button> 
+            <img id="popup-image" src="" alt="Movie Poster" class="popup-image">
+            <div class="popup-text">
+                <h2 id="popup-title" class="popup-title"></h2>
+                <p id="popup-synopsis" class="popup-synopsis"></p>
+                <div class="popup-price-and-button">
+                    <span class="popup-price" id="popup-price-span">
+                        <span class="old-price-wrapper"><span id="popup-old-price" class="old-price"></span></span><br>
+                        <span id="popup-new-price" class="new-price">Por: </span>
+                    </span>
+                    <button class="popup-btn">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendDataToBot(id, name, price, channelId) {
+            const data = { id: id, name: name, price: price, channelId: channelId };
+            Telegram.WebApp.sendData(JSON.stringify(data));
+        }
+    </script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="./scripts/fetch.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/search.js"></script>
+</body>
+
+</html>
